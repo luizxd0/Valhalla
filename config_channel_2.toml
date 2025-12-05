@@ -10,7 +10,7 @@ worldAddress = "127.0.0.1"
 worldPort = "8584"
 listenAddress = "0.0.0.0"
 listenPort = "8684"
-ClientConnectionAddress = "127.0.0.1"
+ClientConnectionAddress = "51.191.168.5"
 packetQueueSize = 512
 MaxPop = 250
 # The following should be set to zero when not testing on a local network environment
