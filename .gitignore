@@ -40,3 +40,6 @@ values_dev.yaml
 
 # GoReleaser
 dist/
+
+# Local channel configs
+config_channel_*.toml
