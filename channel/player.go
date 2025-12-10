@@ -1817,11 +1817,11 @@ func parseTeleportRocks(rocksStr string, size int) []int32 {
 	for i := range rocks {
 		rocks[i] = constant.InvalidMap
 	}
-	
+
 	if rocksStr == "" {
 		return rocks
 	}
-	
+
 	parts := strings.Split(rocksStr, ",")
 	for i, part := range parts {
 		if i >= size {
@@ -1835,7 +1835,7 @@ func parseTeleportRocks(rocksStr string, size int) []int32 {
 			rocks[i] = mapID
 		}
 	}
-	
+
 	return rocks
 }
 
@@ -1851,6 +1851,8 @@ func (d *Player) addBuff(skillID int32, level byte, delay int16) {
 	if d.buffs == nil {
 		NewCharacterBuffs(d)
 	}
+	// Ensure the buff manager points to this exact Player instance (avoid stale copies).
+	d.buffs.plr = d
 	d.buffs.AddBuff(d.ID, skillID, level, false, delay)
 }
 
