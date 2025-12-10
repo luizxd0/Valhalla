@@ -24,6 +24,10 @@ func (server *Server) HandleClientPacket(conn mnet.Client, reader mpacket.Reader
 		server.playerCashShopPurchase(conn, reader)
 	case opcode.RecvChannelUserPortal:
 		server.leaveCashShopToChannel(conn, reader)
+	case opcode.RecvCashShopCheckCash: // GMS v28: "Check Cash" / refresh amounts
+		if plr, err := server.players.GetFromConn(conn); err == nil {
+			plr.Send(packetCashShopUpdateAmounts(plr.GetNX(), plr.GetMaplePoints()))
+		}
 
 	default:
 		log.Println("UNKNOWN CASHSHOP PACKET (", op, "):", reader)

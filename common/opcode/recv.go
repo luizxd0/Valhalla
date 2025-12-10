@@ -75,5 +75,6 @@ const (
 	RecvChannelPlayerPickup        byte = 0x73
 	RecvChannelReactorHit          byte = 0x76
 	RecvChannelBoatMap             byte = 0x80
+	RecvCashShopCheckCash          byte = 0x84
 	RecvCashShopPurchase           byte = 0x85
 )
