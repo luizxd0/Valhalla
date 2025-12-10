@@ -184,7 +184,8 @@ func (server *Server) HandleClientPacket(conn mnet.Client, reader mpacket.Reader
 		unknownPacketsTotal.Inc()
 		// Let's send a no change to make sure characters aren't stuck on unknown packets
 		conn.Send(packetPlayerNoChange())
-		log.Println("UNKNOWN CLIENT PACKET(", op, "):", reader)
+		remaining := reader.GetRestAsBytes()
+		log.Printf("UNKNOWN CLIENT PACKET(%d) remaining_len=%d", op, len(remaining))
 	}
 }
 
