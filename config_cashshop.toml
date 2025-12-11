@@ -10,7 +10,7 @@ worldAddress = "127.0.0.1"
 worldPort = "8584"
 listenAddress = "0.0.0.0"
 listenPort = "8600"
-clientConnectionAddress = "51.191.168.5"
+clientConnectionAddress = "51.191.171.234"
 packetQueueSize = 512
 # The following should be set to zero when not testing on a local network environment
 latency = 0
