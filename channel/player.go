@@ -2162,7 +2162,8 @@ func (d *Player) applyQuestAct(act nx.ActBlock, npcID int32, questID int16) erro
 	}
 
 	if hasRandomReward && totalWeight > 0 {
-		roll := int32(d.randIntn(int(totalWeight)))
+		rng := rand.New(rand.NewSource(time.Now().UnixNano()))
+		roll := int32(rng.Int31n(totalWeight))
 
 		cumulative := int32(0)
 		var selectedItem *nx.ActItem
